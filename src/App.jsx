@@ -12,7 +12,7 @@ function App() {
       <Main/>
       <Footer/>
     </Provider>
-  );
+  )
 }
 
 export default App;

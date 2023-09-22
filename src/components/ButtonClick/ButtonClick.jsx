@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 
-function ButtonAnswer({title}) {
+function ButtonClick({title}) {
 
     return (
         <div>
@@ -10,4 +10,4 @@ function ButtonAnswer({title}) {
     );
 }
 
-export default ButtonAnswer;
+export default ButtonClick;

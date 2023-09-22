@@ -15,10 +15,10 @@
 
 .main {
   padding: 3rem 5rem;
-  height: 80vh;
+  max-height: max-content;
 }
 
-.buttons-store{
+.buttons-store {
   display:flex;
   justify-content: space-around;
   margin-bottom: 2rem;
@@ -48,3 +48,32 @@
   margin-top: 1rem;
 }
 
+.rightAnswers
+.wrongAnswers {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+
+.rightAnswers__answers,
+.wrongAnswers__answers {
+  display:flex;
+  flex-wrap:wrap;
+} 
+
+.wrongAnswers__answer,
+.rightAnswers__answer {
+  margin-right: 1rem;
+}
+
+.rightAnswers__image,
+.wrongAnswers__image {
+  width: 13rem;
+  height: 13rem;
+}
+
+.button-back {
+  margin-top: 1rem;
+}
