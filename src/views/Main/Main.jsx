@@ -1,16 +1,19 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
-import CharacterList from '../CharacterList/CharacterList';
-import RigthAnswers from '../RightAnswers/RigthAnswers';
-import WrongAnswers from '../WrongAnswers/WrongAnswers';
+import CharacterCard from '../CharacterCard/CharacterCard';
+import ResultsOfGame from '../ResultsOfGame/ResultsOfGame'
+import ResultCards from '../ResultCards/ResultCards';
+
+
 
 function Main() {
     return (
         <div className='main'>
             <Routes>
-                <Route path='/' element={<CharacterList/>}></Route>
-                <Route path='/rightAnswers' element={<RigthAnswers/>}></Route>
-                <Route path='/wrongAnswers' element={<WrongAnswers/>}></Route>
+                <Route path='/' element={<CharacterCard/>}></Route>
+                <Route path='/results' element={<ResultsOfGame/>}></Route>
+                <Route path='/results/right-anwers' element={<ResultCards/>}></Route>
+                <Route path='/results/wrong-anwers' element={<ResultCards/>}></Route>
             </Routes>
         </div>
     );

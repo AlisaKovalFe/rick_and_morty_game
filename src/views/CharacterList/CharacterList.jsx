@@ -17,7 +17,7 @@ function CharacterList() {
                         <Link to={'/rightAnswers'}>
                             <ButtonClick title='угаданные'/>   
                         </Link>
-                        <Link to={'/wrongAnswers'}>
+                        <Link to={'/results'}>
                             <ButtonClick title='неугаданные'/>
                         </Link>
                     </div>

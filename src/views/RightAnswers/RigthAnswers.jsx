@@ -14,20 +14,18 @@ function RigthAnswers(props) {
                     rightAnswers.length !== 0 && rightAnswers.map((el) => (
                         <div className='rightAnswers__answer' key={el.id}>
                             <img className='rightAnswers__image' src={el.image} alt={el.name}/>
+                            <h4>{el.name}</h4>
                         </div>
                     ))
                 }
             </div>
 
-            {
-                rightAnswers.length !== 0 && (
-                    <div className='button-back'>
-                        <Link to={'/'}>
-                            <ButtonClick title='назад'/>
-                        </Link>
-                    </div>
-                )
-            }
+
+            <div className='button-back'>
+                <Link to={'/'}>
+                    <ButtonClick title='назад'/>
+                </Link>
+            </div>
     
         </div>
     );

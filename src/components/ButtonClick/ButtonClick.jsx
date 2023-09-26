@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from 'antd';
 
-function ButtonClick({title}) {
+function ButtonClick({title, onClick}) {
 
     return (
         <div>
-            <Button>{title}</Button>
+            <Button onClick={onClick}>{title}</Button>
         </div>
     );
 }
