@@ -13,3 +13,7 @@ export const addCharacterThunk = () => (dispatch) => {
       dispatch(addCharacterAC((data)));
     })
 };
+
+export const clearCharactersStoreAC = () => ({
+  type: mainTypes.CLEAR_CHARACTERS_STORE,
+})

@@ -7,8 +7,7 @@ const initialState = {
 export function flagReducer(state = initialState, action) {
     switch (action.type) {
         case mainTypes.CHANGE_FLAG: {
-            console.log(action.payload)
-            return { ...state, flagBoolean: action.payload};
+            return { ...state, flag: action.payload};
         }
 
         default: {

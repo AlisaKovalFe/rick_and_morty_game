@@ -10,3 +10,7 @@ type: mainTypes.ADD_WRONG_ANSWER,
 payload: answerData
 })
 
+export const clearAnswersStoresAC = () => ({
+    type: mainTypes.CLEAR_ANSWERS_STORES,
+    })
+    

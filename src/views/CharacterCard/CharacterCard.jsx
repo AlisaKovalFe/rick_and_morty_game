@@ -10,6 +10,7 @@ function CharacterCard() {
     const { species } = useSelector((store) => store.speciesStore);
     const { statusOfVitality } = useSelector((store) => store.statusStore);
     const { genders } = useSelector((store) => store.genderStore);
+    const dispatch = useDispatch();
 
     const [ features, setFeatures ] = useState(species)
     const storeOfFeatures = [species, statusOfVitality, genders]
@@ -17,15 +18,12 @@ function CharacterCard() {
     const { characters } = useSelector((store) => store.mainStore);
     const lastCharacterInList = characters[characters.length - 1]
 
-    const dispatch = useDispatch();
-
     useEffect(() => {   
         dispatch(addCharacterThunk())
     }, [])
 
     function handlerClick(title) {
-        console.log(title, characters, lastCharacterInList.species, lastCharacterInList.status, lastCharacterInList.gender)
-        const variableOfFeatures = Math.round(Math.random() * 10) % storeOfFeatures.length
+        const variableOfFeatures = Math.round(Math.random() * 10) % storeOfFeatures.length 
 
         dispatch(addCharacterThunk())
 
@@ -43,8 +41,8 @@ function CharacterCard() {
             }))
         }
         
-
-        if (variableOfFeatures === 2) {
+        // имитирую разное предложение признаков для угадывания
+        if (variableOfFeatures === 2) {   
             setFeatures(genders) 
         } else if(variableOfFeatures === 1) {
             setFeatures(statusOfVitality) 
@@ -64,8 +62,7 @@ function CharacterCard() {
                     features?.map((el) => (
                         <div key={el.id}>
                             <ButtonClick title={el.title} onClick={()=>handlerClick(el.title)}/>
-                        </div>
-                        
+                        </div>                        
                     ))
                 }
             </div>

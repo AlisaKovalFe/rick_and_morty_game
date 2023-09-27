@@ -1,35 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import ButtonClick from '../../components/ButtonClick/ButtonClick'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { changeFlagAC } from '../../store/actions/changeFlagAction'
-import { useParams, useNavigate } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
+import { clearCharactersStoreAC } from '../../store/actions/mainActions'
+import { clearAnswersStoresAC } from '../../store/actions/answerActions'
 
 function ResultsOfGame(props) {
    
     const { rightAnswers } = useSelector((store) => store.rigthAnswersStore);
     const { wrongAnswers } = useSelector((store) => store.wrongAnswersStore);
-    const { flag } = useSelector((store) => store.flagStore);
     
-    const navigate = useNavigate()
     const dispatch = useDispatch();
-    const [ flagNew, setFlagNew] = useState(flag)
+    const navigate = useNavigate()
 
-    async function changeFlag() {
-        await setFlagNew(!flag)
-        await navigate('/results/wrong-anwers')
+    function changeFlagToFalse() {
+        dispatch(changeFlagAC(
+            false
+        ))
+        navigate('/results/anwers')
     }
 
-    dispatch(changeFlagAC({
-        flag: flagNew
-    }))
+    function changeFlagToTrue() {
+        dispatch(changeFlagAC(
+            true
+        ))
+        navigate('/results/anwers')
+    }
+
+    function stopTheGame() {
+        dispatch(clearCharactersStoreAC())
+        dispatch(clearAnswersStoresAC())
+    }
 
     return (
         <div className='results'>
             <Link to={'/'}>
-                <ButtonClick title='&#8592; Играть снова' className='start'/>
+                <ButtonClick onClick={stopTheGame} title='&#8592; Играть снова' className='start'/>
             </Link>
             
             <div className='results__output'>
@@ -39,13 +48,8 @@ function ResultsOfGame(props) {
             </div>
             
             <div className='results__buttons'>
-                <Link to={'/results/right-anwers'}>
-                    <ButtonClick title='Правильные ответы' />
-                </Link>
-                {/* <Link to={'/results/wrong-anwers'}>
-                    <ButtonClick title='Неправильные ответы' onClick={() => changeFlag()}/>
-                </Link> */}
-                <ButtonClick title='Неправильные ответы' onClick={() => changeFlag()}/>
+                <button className='button' onClick={() => changeFlagToTrue()}>Правильные ответы</button>
+                <button className='button' onClick={() => changeFlagToFalse()}>Неправильные ответы</button>
             </div>
         </div>
     );

@@ -12,8 +12,7 @@ function Main() {
             <Routes>
                 <Route path='/' element={<CharacterCard/>}></Route>
                 <Route path='/results' element={<ResultsOfGame/>}></Route>
-                <Route path='/results/right-anwers' element={<ResultCards/>}></Route>
-                <Route path='/results/wrong-anwers' element={<ResultCards/>}></Route>
+                <Route path='/results/anwers' element={<ResultCards/>}></Route>
             </Routes>
         </div>
     );

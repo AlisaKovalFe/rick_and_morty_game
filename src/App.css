@@ -58,6 +58,22 @@
   justify-content: space-between;
 }
 
+.button {
+  height: 2.3rem;
+  background-color: rgb(210, 178, 240);
+  border-radius: 0.5rem;
+  border: 1px solid rgb(206, 169, 241);
+}
+
+.button:hover {
+  background-color: rgb(142, 109, 172);
+}
+
+.answers-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .answers {
   display: flex;
   flex-direction: column;

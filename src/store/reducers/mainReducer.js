@@ -9,6 +9,10 @@ export function mainReducer(state = initialState, action) {
         case mainTypes.ADD_CHARACTERS: {
           return { ...state, characters: [...state.characters, action.payload] };
         }
+
+        case mainTypes.CLEAR_CHARACTERS_STORE: {
+          return { ...state, characters: [] };
+        }
         
         default: {
           return state;

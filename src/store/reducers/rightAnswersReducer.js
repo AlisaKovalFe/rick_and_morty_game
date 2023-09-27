@@ -10,6 +10,10 @@ export function rightAnswersReducer(state = initialState, action) {
           console.log(action.payload)
           return { ...state, rightAnswers: [...state.rightAnswers, action.payload] };
         }
+
+        case mainTypes.CLEAR_ANSWERS_STORES: {
+          return { ...state, rightAnswers: [] };
+        }
         
         default: {
           return state;
