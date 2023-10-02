@@ -7,7 +7,6 @@ const initialState = {
 export function rightAnswersReducer(state = initialState, action) {
     switch (action.type) {
         case mainTypes.ADD_RIGTH_ANSWER: {
-          console.log(action.payload)
           return { ...state, rightAnswers: [...state.rightAnswers, action.payload] };
         }
 

@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addRightAnswerAC } from '../../store/actions/answerActions'
 import { addCharacterThunk } from '../../store/actions/mainActions'
 import { addWrongAnswerAC } from '../../store/actions/answerActions'
+import { genders } from '../../data/data'
+import { species } from '../../data/data'
+import { statusOfVitality } from '../../data/data'
 
 function CharacterCard() {
-    const { species } = useSelector((store) => store.speciesStore);
-    const { statusOfVitality } = useSelector((store) => store.statusStore);
-    const { genders } = useSelector((store) => store.genderStore);
     const dispatch = useDispatch();
 
     const [ features, setFeatures ] = useState(species)
@@ -41,7 +41,6 @@ function CharacterCard() {
             }))
         }
         
-        // имитирую разное предложение признаков для угадывания
         if (variableOfFeatures === 2) {   
             setFeatures(genders) 
         } else if(variableOfFeatures === 1) {

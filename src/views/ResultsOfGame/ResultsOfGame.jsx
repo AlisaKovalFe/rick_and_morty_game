@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { clearCharactersStoreAC } from '../../store/actions/mainActions'
 import { clearAnswersStoresAC } from '../../store/actions/answerActions'
 
-function ResultsOfGame(props) {
+function ResultsOfGame() {
    
     const { rightAnswers } = useSelector((store) => store.rigthAnswersStore);
     const { wrongAnswers } = useSelector((store) => store.wrongAnswersStore);
@@ -16,16 +16,9 @@ function ResultsOfGame(props) {
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    function changeFlagToFalse() {
+    function changeFlag(flag) {
         dispatch(changeFlagAC(
-            false
-        ))
-        navigate('/results/anwers')
-    }
-
-    function changeFlagToTrue() {
-        dispatch(changeFlagAC(
-            true
+            flag
         ))
         navigate('/results/anwers')
     }
@@ -48,8 +41,8 @@ function ResultsOfGame(props) {
             </div>
             
             <div className='results__buttons'>
-                <button className='button' onClick={() => changeFlagToTrue()}>Правильные ответы</button>
-                <button className='button' onClick={() => changeFlagToFalse()}>Неправильные ответы</button>
+                <button className='button' onClick={() => changeFlag(true)}>Правильные ответы</button>
+                <button className='button' onClick={() => changeFlag(false)}>Неправильные ответы</button>
             </div>
         </div>
     );
